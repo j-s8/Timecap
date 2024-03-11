@@ -1,28 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import App from './App';
-
+import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
+import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
 const IndexPage = () => {
     return (
+        
         <div>
-            <h1>Welcome to My Site</h1>
-            <p>This is a simple website where you can register and login.</p>
-
-            <h2>Register</h2>
-            <p>If you don't have an account yet, you can register here:</p>
-            {/* Change the href to the appropriate path */}
+        <h1>Welcome to My Website</h1>
+        <p>Please choose an option:</p>
+        <ul>
+          <li>
             <Link to="/register">Register</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      </div>
+            
 
-            <h2>Login</h2>
-            <p>If you already have an account, you can login here:</p>
-            {/* Change the href to the appropriate path */}
-            <a href="/login">Login</a>
-
-            <h2>About</h2>
-            <p>This website is designed to provide a simple and secure login functionality. It's built with React.</p>
-            <p>Feel free to explore the site and let us know if you have any questions or feedback!</p>
-        </div>
     );
 };
 

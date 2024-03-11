@@ -1,30 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
 import IndexPage from './IndexPage'; // Importing IndexPage from the same directory
+import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */
-        <div>
-            <h1>This is my main opening page</h1>
-            <IndexPage />
-        </div>}
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<IndexPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
 
