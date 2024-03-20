@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, withRouter, useNavigate} from 'react-router-dom';
 import './IndexPage.css';
-import backgroundImage from './assets/pg2.png';// Import the background image
+import videoBackground from './assets/vid1.mp4';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
+
 const IndexPage = ({ isLoggedIn }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     const addCSSLinks = () => {
       // Create link elements for each stylesheet
@@ -81,10 +83,16 @@ const IndexPage = ({ isLoggedIn }) => {
     };
   }, []);
 
+  // Function to handle logout
+  const handleLogout = () => {
+    // Perform logout-related actions here, e.g., clearing session, removing tokens, etc.
+    // For now, let's just navigate to the login page
+    navigate('/login');
+  };
+
   return (
 
-
-    <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh' }}>
+    <div style={{ videoBackground: `url(${videoBackground})`, backgroundSize: 'cover', minHeight: '100vh' }}>
       <nav className="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
         <div className="container">
           <Link className="navbar-brand" to="/"></Link>
@@ -100,7 +108,11 @@ const IndexPage = ({ isLoggedIn }) => {
               <li className="nav-item nav-link"><Link className="nav-link" to="#audio">AUDIO</Link></li>
               <li className="nav-item nav-link"><Link className="nav-link" to="#document">DOCUMENT</Link></li>
               <li className="nav-item nav-link">
-                <button style={{ background: 'transparent', border: 'none', fontWeight: 'bold', color: 'white' }} className="nav-link" data-bs-toggle="modal" data-bs-target="#myModal">
+              <button
+                style={{ background: 'transparent', border: 'none', fontWeight: 'bold', color: 'white' }}
+                className="nav-link"
+                onClick={handleLogout} // Call handleLogout function on button click
+              >
                   LOGOUT
                 </button>
               </li>

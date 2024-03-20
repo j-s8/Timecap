@@ -26,9 +26,7 @@ html {
   padding: 20px 0; /* Adjust as needed */
 }
 
-/* =========================================
-Stark Industries Logo
-========================================= */
+
 #logo {
   animation: logo-entry 4s ease-in;
   width: 500px;
